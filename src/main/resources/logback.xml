@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration scan="false">
+
+    <!-- App name for log context -->
+    <property name="APP_NAME" value="oscs"/>
+
+    <appender name="STDOUT" class="ch.qos.logback.core.ConsoleAppender">
+        <encoder>
+            <pattern>
+                %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{36} - %msg%n
+            </pattern>
+        </encoder>
+    </appender>
+
+    <!-- Application logs -->
+    <logger name="com.example" level="DEBUG" additivity="false">
+        <appender-ref ref="STDOUT"/>
+    </logger>
+
+    <!-- Spring framework -->
+    <logger name="org.springframework" level="INFO"/>
+
+    <!-- WebLogic noise reduction -->
+    <logger name="weblogic" level="WARN"/>
+
+    <!-- Root -->
+    <root level="INFO">
+        <appender-ref ref="STDOUT"/>
+    </root>
+
+</configuration>
