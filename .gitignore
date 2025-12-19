@@ -1,0 +1,15 @@
+# Ignore everything in target/
+target/*
+
+# Except oscs.war
+!target/oscs.war
+
+# Optional: ignore IDE and OS files
+*.iml
+.idea/
+.project
+.settings/
+*.log
+.DS_Store
+Thumbs.db
+
