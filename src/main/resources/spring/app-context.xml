@@ -4,12 +4,41 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="
            http://www.springframework.org/schema/beans
-           classpath:org/springframework/beans/factory/xml/spring-beans.xsd
+           http://www.springframework.org/schema/beans/spring-beans.xsd
            http://www.springframework.org/schema/context
-           classpath:org/springframework/context/config/spring-context.xsd">
+           http://www.springframework.org/schema/context/spring-context.xsd">
 
-    <!-- Scan only controllers -->
-    <context:component-scan base-package="com.example.hello"/>
+    <!-- ========================================================= -->
+    <!-- Load externalized properties (from environment variables) -->
+    <!-- ========================================================= -->
+    <context:property-placeholder
+            location="classpath:spring/application.properties"
+            ignore-unresolvable="false"/>
+
+    <!-- ========================================================= -->
+    <!-- Oracle Autonomous DB DataSource (Wallet + TLS)             -->
+    <!-- ========================================================= -->
+    <bean id="dataSource"
+          class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+
+        <property name="driverClassName"
+                  value="oracle.jdbc.OracleDriver"/>
+
+        <!--
+          Example resolved URL:
+          jdbc:oracle:thin:@dbtest1_low?TNS_ADMIN=/opt/wallets/adb
+        -->
+        <property name="url"
+                  value="jdbc:oracle:thin:@${adb.tns.alias}?TNS_ADMIN=${adb.wallet.dir}"/>
+
+        <property name="username" value="${adb.user}"/>
+        <property name="password" value="${adb.password}"/>
+
+    </bean>
+
+    <!-- ========================================================= -->
+    <!-- Component scanning                                       -->
+    <!-- ========================================================= -->
+    <context:component-scan base-package="com.example"/>
 
 </beans>
-

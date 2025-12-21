@@ -28,6 +28,17 @@
       <version>1.4.14</version>
   </dependency> -->
 
+  <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc8</artifactId>
+      <version>19.14.0.0</version>
+  </dependency>
+
+  <!-- <dependency>
+      <groupId>com.oracle.database.jdbc</groupId>
+      <artifactId>ojdbc11</artifactId>
+      <version>21.10.0.0</version>
+  </dependency> -->
 
   <!-- SLF4J API (Java 8 compatible) -->
   <dependency>
@@ -42,8 +53,6 @@
       <artifactId>logback-classic</artifactId>
       <version>1.2.13</version>
   </dependency>
-
-
 
 
     <!-- Spring -->
@@ -82,12 +91,12 @@
     </dependency>
 
     <!-- Oracle JDBC -->
-    <dependency>
+    <!-- <dependency>
       <groupId>com.oracle.database.jdbc</groupId>
       <artifactId>ojdbc8</artifactId>
       <version>19.3.0.0</version>
       <scope>provided</scope>
-    </dependency>
+    </dependency> -->
 
     <!-- Servlet API -->
     <dependency>
