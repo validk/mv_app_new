@@ -182,9 +182,7 @@ spec:
       #   `sourceModelHome`      - Model file directory in image, default `/auxiliary/models`.
       #   `sourceWDTInstallHome` - WDT install directory in image, default `/auxiliary/weblogic-deploy`.
       auxiliaryImages:
-      #- image: "beyondcloudai/wdt-domain-image:WLS-v1"
-      - image: "validocker123/oscs:v1"
-        imagePullPolicy: IfNotPresent
+      - image: "beyondcloudai/wdt-domain-image:WLS-v1"
         #imagePullPolicy: IfNotPresent
         #sourceWDTInstallHome: /auxiliary/weblogic-deploy
         #sourceModelHome: /auxiliary/models
@@ -212,8 +210,7 @@ metadata:
     # Update this with the `domainUID` of your domain:
     weblogic.domainUID: prod-tele-domain
 spec:
-  # This must match a cluster name that is  specified in the WebLogic configuration(model.yaml)
-  # clusterName in Cluster CR must equal the cluster name in model.yaml
+  # This must match a cluster name that is  specified in the WebLogic configuration
   clusterName: cluster-1
   # The number of managed servers to start for this cluster
   replicas: 2

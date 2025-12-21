@@ -28,9 +28,9 @@ topology:
 
 appDeployments:
     Application:
-        oscsapp:
-            SourcePath: 'wlsdeploy/applications/oscs.war'
-            ModuleType: war
+        myapp:
+            SourcePath: 'wlsdeploy/applications/myapp-v1'
+            ModuleType: ear
             Target: 'cluster-1'
 
 resources:
